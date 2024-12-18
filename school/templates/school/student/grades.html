@@ -1,0 +1,48 @@
+<!-- filepath: /c:/Users/elihe/OneDrive/Escritorio/DjangoApp/school/templates/school/student/grades.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calificaciones</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header text-center">
+                        <h2>Calificaciones</h2>
+                    </div>
+                    <div class="card-body">
+                        {% if grades %}
+                            <ul class="list-group">
+                                {% for grade in grades %}
+                                    <li class="list-group-item">
+                                        <strong>Materia:</strong> {{ grade.subject }}<br>
+                                        <strong>Parcial 1:</strong> {{ grade.partial1 }}<br>
+                                        <strong>Parcial 2:</strong> {{ grade.partial2 }}<br>
+                                        <strong>Parcial 3:</strong> {{ grade.partial3 }}<br>
+                                        <strong>Ordinario:</strong> {{ grade.ordinary }}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% else %}
+                            <p class="text-center">No hay calificaciones por mostrar</p>
+                        {% endif %}
+                    </div>
+                    <div class="card-footer text-center">
+                        <a href="{% url 'index' %}" class="btn btn-secondary">Inicio</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
